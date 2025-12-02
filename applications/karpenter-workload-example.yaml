@@ -1,0 +1,29 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: my-app-graviton-spot
+  namespace: default
+spec:
+  replicas: 5
+  selector:
+    matchLabels:
+      app: my-app-graviton-spot
+  template:
+    metadata:
+      labels:
+        app: my-app-graviton-spot
+    spec:
+      nodeSelector:
+        kubernetes.io/arch: arm64           
+        karpenter.sh/capacity-type: spot    
+      containers:
+        - name: app
+          image: nginx:latest  
+          resources:
+            requests:
+              cpu: "500m"
+              memory: "512Mi"
+            limits:
+              cpu: "1"
+              memory: "1Gi"
+      terminationGracePeriodSeconds: 30
