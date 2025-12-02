@@ -62,6 +62,6 @@ module "eks" {
 
   # Tag node security group for Karpenter discovery
   node_security_group_tags = {
-    "karpenter.sh/discovery" = "test01-eks-cluster"
+    "karpenter.sh/discovery" = "${local.name}-eks-cluster"
   }
 }
