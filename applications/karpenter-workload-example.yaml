@@ -2,7 +2,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: my-app-graviton-spot
-  namespace: default
+  namespace: app-nginx
 spec:
   replicas: 5
   selector:
