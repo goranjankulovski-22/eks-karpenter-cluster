@@ -28,7 +28,8 @@ This Terraform repository deploys an AWS EKS cluster with Karpenter for intellig
 │ │ Group    │    │  (Spot)      │    │  (Graviton)  │            │
 │ │          │    │              │    │              │            │
 │ │ Critical │    │  Workloads   │    │  Workloads   │            │
-│ │ Add-ons  │    │              │    │              │            │
+│ │ Add-ons  |    |              |    |              |            |
+| │ Karpenter│    |              │    │              │            │
 │ └──────────┘    └──────────────┘    └──────────────┘            │
 └─────────────────────────────────────────────────────────────────┘
 ```
