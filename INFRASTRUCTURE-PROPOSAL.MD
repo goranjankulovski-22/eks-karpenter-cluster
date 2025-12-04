@@ -1,12 +1,19 @@
 ## Architecture Summary
 
 The Innovate Inc. application is deployed on Amazon EKS in multiple AWS accounts, with the following key components:
+
     CloudFront + WAF as the public edge, protecting all traffic
+    
     ALB in public subnet, but restricted to CloudFront-only access
+    
     EKS in private subnets, scaled dynamically with Karpenter
+    
     Aurora PostgreSQL for Production
+    
     RDS PostgreSQL for Dev/Test/Staging
+    
     GitOps-driven deployments via ArgoCD
+    
     CI with GitHub Actions, Trivy vulnerability scanning, and ECR push
 
 
@@ -100,4 +107,5 @@ RDS: Multi-AZ in Test/Staging, single-AZ Dev
     Cluster state backed by GitOps (ArgoCD manifests). 
     DR cluster in separate region/account can restore workloads and config quickly
 ### Infrastructure
+
     Deploy infrastructure on DR scenario/Have it already deployed in standby
