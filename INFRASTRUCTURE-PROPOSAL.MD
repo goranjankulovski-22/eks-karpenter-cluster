@@ -52,13 +52,21 @@ Enfore tagging on all resources with SCP policies.
 
 Each environment has a dedicated VPC with:
     3 Availability Zones
+
     9 subnets: Public, Private, Restricted
+
     VPC Endpoints: ECR, CloudWatch
+
     NAT Gateways for private subnet outbound access
+
     VPC Flow Logs centralized to Security account to CloudWatch Logs
+
     Network ACLs (NACLs): Applied to all subnets to provide an additional layer of subnet-level security
+
     Security groups: Used at instance/pod level for fine-grained access control
+
     CloudFront + WAF: Fronts all public traffic, restricting access to the ALB
+
     ALB: Placed in public subnets but only accessible via CloudFront
 
 
@@ -66,7 +74,9 @@ Each environment has a dedicated VPC with:
 ## EKS
 
 Each AWS account has an EKS cluster in private subnets. 
+
 Managed Node Group: Runs Istio control plane, ArgoCD, Karpenter controller, core system pods, add-ons
+
 Karpenter: Autoscaling based on pod resource requests, Spot + On-Demand mix
 
 
@@ -89,10 +99,12 @@ Karpenter: Autoscaling based on pod resource requests, Spot + On-Demand mix
 
 ### Backups
 Aurora: Continuous backups, Point-in-time restore, cross-account snapshots
+
 RDS: Automated backups (7–14 days), manual snapshots
 
 ### High Availability
 Aurora: Multi-AZ, sub-30s failover, distributed storage
+
 RDS: Multi-AZ in Test/Staging, single-AZ Dev
 
 
@@ -109,3 +121,4 @@ RDS: Multi-AZ in Test/Staging, single-AZ Dev
 ### Infrastructure
 
     Deploy infrastructure on DR scenario/Have it already deployed in standby
+
